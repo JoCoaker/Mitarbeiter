@@ -10,7 +10,7 @@ public abstract class Mitarbeiter {
     // Klassen Variablen
     protected String vorname;
     protected String nachname;
-    protected float jahresGehaltBisHeute;
+    protected float jahresGehaltBisHeute = 0;
 
     /**
      * Konstruktor

@@ -7,7 +7,7 @@
 public class ATAngestellter extends Mitarbeiter {
 	private float monatsLohn;
 
-	private ATAngestellter(float monatsLohn, String vorname, String nachname) {
+	public ATAngestellter(float monatsLohn, String vorname, String nachname) {
 		super(vorname, nachname);
 		this.monatsLohn = monatsLohn;
 	}

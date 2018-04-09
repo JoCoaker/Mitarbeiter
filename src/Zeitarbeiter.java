@@ -9,10 +9,9 @@ public class Zeitarbeiter extends Mitarbeiter {
 	private float stundenLohn;
 	private int gearbeiteteStunden;
 
-	public Zeitarbeiter(float stundenLohn, int gearbeiteteStunden, String vorname, String nachname) {
+	public Zeitarbeiter(float stundenLohn, String vorname, String nachname) {
 		super(vorname, nachname);
 		this.stundenLohn = stundenLohn;
-		this.gearbeiteteStunden = gearbeiteteStunden;
 
 	}
 
