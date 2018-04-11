@@ -3,21 +3,31 @@
  * Angestellter
  *
  * @author Peter Tim Oliver Nauroth (198322)
- * @version 1.0.0
+ * @version 1.0.1
  */
 
-public class Angestellter extends Mitarbeiter {
+public class Angestellter implements IMitarbeiter,ISteuerZahler{
 	
 	private float monatsLohn;
 	private float ueberStundenTarif;
 	private int gearbeiteteUeberstunden;
+	private String vorname;
+	private String nachname;
+	private float jahresGehaltBisHeute = 0;
 	
 
 	Angestellter(String vorname, String nachname, float monatsLohn, float ueberStundenTarif) {
-		super(vorname, nachname);
-		this.monatsLohn = monatsLohn;
+		
+		if(monatsLohn/(40*4)<MINDEST_LOHN) {
+			throw new IllegalArgumentException("Gehalt unter Mindestlohn");
+		}
+		
+		this.vorname = vorname;
+		this.nachname = nachname;
+		this.jahresGehaltBisHeute = monatsLohn;
 		this.ueberStundenTarif = ueberStundenTarif;
 		gearbeiteteUeberstunden = 0;
+		
 		// TODO Auto-generated constructor stub
 	}
 
@@ -55,6 +65,21 @@ public class Angestellter extends Mitarbeiter {
 
 	public float getUeberStundenTarif() {
 		return ueberStundenTarif;
+	}
+
+	@Override
+	public float tatsaechlicheEinkommenSteuer() {
+		return this.jahresGehaltBisHeute*EINKOMMENSSTEUERSATZ;
+	}
+
+	@Override
+	public float voraussichtlicheEinkommenSteuer() {
+		return this.monatsLohn*12*EINKOMMENSSTEUERSATZ;
+	}
+
+	@Override
+	public float getJahresGehaltBisHeute() {
+		return this.jahresGehaltBisHeute;
 	}
 
 }
