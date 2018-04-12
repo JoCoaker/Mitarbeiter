@@ -3,7 +3,7 @@
  * Angestellter
  *
  * @author Peter Tim Oliver Nauroth (198322)
- * @version 1.0.1
+ * @version 1.0.2
  */
 
 public class Angestellter implements IMitarbeiter,ISteuerZahler{
@@ -14,6 +14,7 @@ public class Angestellter implements IMitarbeiter,ISteuerZahler{
 	private String vorname;
 	private String nachname;
 	private float jahresGehaltBisHeute = 0;
+	private Arbeitsvertrag vertragsArt;
 	
 
 	Angestellter(String vorname, String nachname, float monatsLohn, float ueberStundenTarif) {
@@ -21,7 +22,7 @@ public class Angestellter implements IMitarbeiter,ISteuerZahler{
 		if(monatsLohn/(40*4)<MINDEST_LOHN) {
 			throw new IllegalArgumentException("Gehalt unter Mindestlohn");
 		}
-		
+		this.vertragsArt = Arbeitsvertrag.ANGESTELLTER;
 		this.vorname = vorname;
 		this.nachname = nachname;
 		this.monatsLohn = monatsLohn;
@@ -82,6 +83,12 @@ public class Angestellter implements IMitarbeiter,ISteuerZahler{
 
     @Override
     public String toString() {
-        return this.vorname + " " + this.nachname;
+        return this.vorname + " " + this.nachname + " Vertragsart: " + this.vertragsArt;
     }
+
+
+	@Override
+	public Arbeitsvertrag getVertragsart() {
+		return this.vertragsArt;
+	}
 }
