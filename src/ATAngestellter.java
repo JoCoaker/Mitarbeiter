@@ -12,10 +12,12 @@ public class ATAngestellter implements IMitarbeiter, ISteuerZahler {
 	
 
 	public ATAngestellter(float monatsLohn, String vorname, String nachname) {
+		this.nachname = nachname;
+		this.vorname = vorname;
 		
 		this.monatsLohn = monatsLohn;
 		
-		if(monatsLohn >= 8.84f * 160) {
+		if(monatsLohn <= MINDEST_LOHN * 160) {
 			System.out.println("Lohn unter Mindestlohn! ");
 		}
 	}
@@ -44,4 +46,9 @@ public class ATAngestellter implements IMitarbeiter, ISteuerZahler {
 	public float voraussichtlicheEinkommenSteuer() {
 		return this.monatsLohn*12*EINKOMMENSSTEUERSATZ;
 	}
+
+	@Override
+    public String toString() {
+        return this.vorname + " " + this.nachname;
+    }
 }

@@ -24,7 +24,7 @@ public class Angestellter implements IMitarbeiter,ISteuerZahler{
 		
 		this.vorname = vorname;
 		this.nachname = nachname;
-		this.jahresGehaltBisHeute = monatsLohn;
+		this.monatsLohn = monatsLohn;
 		this.ueberStundenTarif = ueberStundenTarif;
 		gearbeiteteUeberstunden = 0;
 		
@@ -82,4 +82,8 @@ public class Angestellter implements IMitarbeiter,ISteuerZahler{
 		return this.jahresGehaltBisHeute;
 	}
 
+    @Override
+    public String toString() {
+        return this.vorname + " " + this.nachname;
+    }
 }

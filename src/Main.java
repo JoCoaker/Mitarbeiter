@@ -2,6 +2,9 @@ import java.text.DecimalFormat;
 
 /**
  * Main
+ *
+ * @author Lukas Reichert (199034)
+ * @version 2.0.0
  */
 public class Main {
 
@@ -11,19 +14,17 @@ public class Main {
      * @param args {String[]}
      */
     public static void main(String[] args) {
-        Zeitarbeiter zeitarbeiter = new Zeitarbeiter(16.5f, "Lukas", "Reichert");
-        Angestellter angestellter = new Angestellter("Felix", "Ruess", 4250f, 21.33f);
-        ATAngestellter aTAngestellter = new ATAngestellter(4200f, "Daniel", "Banciu");
-
-        zeitarbeiter.setGearbeiteteStunden(120);
-        angestellter.setGearbeiteteUeberstunden(2);
+        ISteuerZahler[] steuerZahler = new ISteuerZahler[] {new Zeitarbeiter(16.5f, "Lukas", "Reichert"), new Angestellter("Felix", "Ruess", 4250f, 21.33f), new ATAngestellter(4200f, "Daniel", "Banciu")};
 
         DecimalFormat df = new DecimalFormat();
         df.setMaximumFractionDigits(2);
 
-        System.out.println(zeitarbeiter + " hat diesen Monat " + df.format(zeitarbeiter.entgeltBerechnen()) + "€ verdient.");
-        System.out.println(angestellter + " hat diesen Monat " + df.format(angestellter.entgeltBerechnen()) + "€ verdient.");
-        System.out.println(aTAngestellter + " hat diesen Monat " + df.format(aTAngestellter.entgeltBerechnen()) + "€ verdient.");
+        for (ISteuerZahler sz :
+                steuerZahler) {
+            System.out.println(sz + " Tatsächliche Einkommenssteuer: " + df.format(sz.tatsaechlicheEinkommenSteuer()) + "€");
+            System.out.println(sz + " Vorraussichtliche Einkommenssteuer: " + df.format(sz.voraussichtlicheEinkommenSteuer()) + "€");
+        }
+
     }
 
 }

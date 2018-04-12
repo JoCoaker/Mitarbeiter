@@ -13,6 +13,8 @@ public class Zeitarbeiter implements IMitarbeiter, ISteuerZahler {
 	private String vorname;
 
 	public Zeitarbeiter(float stundenLohn, String vorname, String nachname) {
+		this.nachname = nachname;
+		this.vorname = vorname;
 
 		this.stundenLohn = stundenLohn;
 
@@ -52,5 +54,10 @@ public class Zeitarbeiter implements IMitarbeiter, ISteuerZahler {
 		
 		return jahresGehaltBisHeute;
 	}
+
+    @Override
+    public String toString() {
+        return this.vorname + " " + this.nachname;
+    }
 
 }
