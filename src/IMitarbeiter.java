@@ -24,7 +24,7 @@ public interface IMitarbeiter {
     float getJahresGehaltBisHeute();
 
     /**
-     *
+     * Gibt die Vertragsart zurück.
      *
      * @return {Arbeitsvertrag}
      */

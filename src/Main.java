@@ -15,16 +15,16 @@ public class Main {
      */
     public static void main(String[] args) {
         // Mitarbeiter erstellen
-        ISteuerZahler[] steuerZahler = new ISteuerZahler[] {new Zeitarbeiter(16.5f, "Lukas", "Reichert"), new Angestellter("Felix", "Ruess", 4250f, 21.33f), new ATAngestellter(4200f, "Daniel", "Banciu")};
+        ISteuerZahler[] steuerZahler = new ISteuerZahler[]{new Zeitarbeiter(16.5f, "Lukas", "Reichert"), new Angestellter("Felix", "Ruess", 4250f, 21.33f), new ATAngestellter(4200f, "Daniel", "Banciu")};
 
         // Arbeitsstunden setzten
-        ((Zeitarbeiter)steuerZahler[0]).setGearbeiteteStunden(45);
-        ((Angestellter)steuerZahler[1]).setGearbeiteteUeberstunden(1);
+        ((Zeitarbeiter) steuerZahler[0]).setGearbeiteteStunden(45);
+        ((Angestellter) steuerZahler[1]).setGearbeiteteUeberstunden(1);
 
         // Entgelt für den ersten Monat berechnen
         for (ISteuerZahler sz :
                 steuerZahler) {
-            ((IMitarbeiter)sz).entgeltBerechnen();
+            ((IMitarbeiter) sz).entgeltBerechnen();
         }
 
         DecimalFormat df = new DecimalFormat("#.00");
