@@ -59,7 +59,7 @@ public class Zeitarbeiter implements IMitarbeiter, ISteuerZahler {
 
 	@Override
 	public String toString() {
-		return this.vorname + " " + this.nachname;
+		return this.vorname + " " + this.nachname + " Vetragsart: " + this.vertragsArt; 
 	}
 
 	@Override
