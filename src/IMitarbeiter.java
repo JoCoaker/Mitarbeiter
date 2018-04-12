@@ -22,4 +22,18 @@ public interface IMitarbeiter {
      * @return {float}
      */
     float getJahresGehaltBisHeute();
+
+    /**
+     *
+     *
+     * @param vertragsart {Arbeitsvertrag}
+     */
+    void setVertragsart(Arbeitsvertrag vertragsart);
+
+    /**
+     *
+     *
+     * @return {Arbeitsvertrag}
+     */
+    Arbeitsvertrag getVertragsart();
 }
