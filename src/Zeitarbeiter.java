@@ -5,12 +5,15 @@
  * @version 1.0.0
  */
 
-public class Zeitarbeiter extends Mitarbeiter {
+public class Zeitarbeiter implements IMitarbeiter, ISteuerZahler {
 	private float stundenLohn;
 	private int gearbeiteteStunden;
+	private float jahresGehaltBisHeute;
+	private String nachname;
+	private String vorname;
 
 	public Zeitarbeiter(float stundenLohn, String vorname, String nachname) {
-		super(vorname, nachname);
+
 		this.stundenLohn = stundenLohn;
 
 	}
@@ -32,6 +35,22 @@ public class Zeitarbeiter extends Mitarbeiter {
 		this.jahresGehaltBisHeute += (gearbeiteteStunden * stundenLohn);
 		return (float) (gearbeiteteStunden * stundenLohn - (gearbeiteteStunden * stundenLohn) * 0.19325);
 
+	}
+
+	@Override
+	public float tatsaechlicheEinkommenSteuer() {
+		return this.jahresGehaltBisHeute * EINKOMMENSSTEUERSATZ;
+	}
+
+	@Override
+	public float voraussichtlicheEinkommenSteuer() {
+		return stundenLohn * 160 * 12 * EINKOMMENSSTEUERSATZ;
+	}
+
+	@Override
+	public float getJahresGehaltBisHeute() {
+		
+		return jahresGehaltBisHeute;
 	}
 
 }
