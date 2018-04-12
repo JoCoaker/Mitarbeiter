@@ -11,12 +11,14 @@ public class Zeitarbeiter implements IMitarbeiter, ISteuerZahler {
 	private float jahresGehaltBisHeute;
 	private String nachname;
 	private String vorname;
+	private Arbeitsvertrag vertragsArt;
 
 	public Zeitarbeiter(float stundenLohn, String vorname, String nachname) {
 		this.nachname = nachname;
 		this.vorname = vorname;
 
 		this.stundenLohn = stundenLohn;
+		this.vertragsArt = Arbeitsvertrag.ZEITARBEITER;
 
 	}
 
@@ -51,13 +53,19 @@ public class Zeitarbeiter implements IMitarbeiter, ISteuerZahler {
 
 	@Override
 	public float getJahresGehaltBisHeute() {
-		
+
 		return jahresGehaltBisHeute;
 	}
 
-    @Override
-    public String toString() {
-        return this.vorname + " " + this.nachname;
-    }
+	@Override
+	public String toString() {
+		return this.vorname + " " + this.nachname + " Vetragsart: " + this.vertragsArt; 
+	}
+
+	@Override
+	public Arbeitsvertrag getVertragsart() {
+
+		return vertragsArt;
+	}
 
 }
