@@ -26,13 +26,6 @@ public interface IMitarbeiter {
     /**
      *
      *
-     * @param vertragsart {Arbeitsvertrag}
-     */
-    void setVertragsart(Arbeitsvertrag vertragsart);
-
-    /**
-     *
-     *
      * @return {Arbeitsvertrag}
      */
     Arbeitsvertrag getVertragsart();
