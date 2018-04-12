@@ -27,8 +27,6 @@ public class Angestellter implements IMitarbeiter,ISteuerZahler{
 		this.monatsLohn = monatsLohn;
 		this.ueberStundenTarif = ueberStundenTarif;
 		gearbeiteteUeberstunden = 0;
-		
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
